@@ -272,8 +272,9 @@
                     $d = !$a; //$d vaut FALSE.<br>
                     $e = !$b; //$e vaut TRUE.</td>
 					</tr>
-				</tbody>
-				</table>
+				</tbody><!--  -->
+				</table><!-- / -->
+                <p>Attention !! Une erreur classique dans l'écriture des expressions conditionnelles consiste à confondre l'opérateur de comparaison == avec l'opérateur d'affectation =. L'usage des parenthèses dans la rédaction des expressions booléennes est souvent indispensable et toujours recommandé pour éviter les problèmes liés à l'ordre d'évaluation des opérateurs.</p>
 
             </div><!-- /col -->
         </div><!-- row -->

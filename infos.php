@@ -9,6 +9,10 @@
     <title>Cours PHP 7 - Introduction</title>
   </head>
   <body>
+    <?php 
+      include("../inc/navbar.inc.php"); 
+  
+    ?>
     <!-- ============= NAV ============ -->
     <div class="container jumbotron">
     </div>

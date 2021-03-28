@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+<?php
+  // jeVarDump($_GET);
+                    // echo $_GET['article']. " - " .$_GET['couleur']. " - " .$_GET['prix']. " €";
+                    if(isset($_GET['article']) && isset($_GET['couleur']) && isset($_GET['prix'])) {
+                        echo $_GET['article'];  //oui on les a affiche le produit
+                    } else {
+                        echo "<p class=\"alert alert-danger mx-auto w-50 m-2 text-center\">Désolé il n'y a pas de produit sur cette page !</p>"; //sinon affiche ce message
+                    }
+
+                    ?>

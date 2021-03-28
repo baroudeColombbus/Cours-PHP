@@ -12,6 +12,7 @@ $variable1 = "PHP 7 qui est dans une variable";
     <?php echo "<title>Document</title>"; ?>
 </head>
 <body>
+    include("../inc/navbar.inc.php")
     <?php
 
     echo "<h1>Cours sur le $variable1</h1>";

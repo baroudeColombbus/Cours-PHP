@@ -16,6 +16,7 @@ require_once '../inc/functions.php';
     <title>Cours PHP 7 - Introduction</title>
   </head>
   <body>
+  <?php require '../inc/navbar.inc.php'; ?>
     <!-- ============= NAV ============ -->
     <div class="container jumbotron">
         <h1 class="display-4">Cours PHP 7 - Les tableau</h1>
@@ -176,10 +177,7 @@ require_once '../inc/functions.php';
 
     </main><!-- /main -->
 
-    <!-- script bootstrap/popper/jquery dependencies -->
-    <script src="jquery/jquery-3.5.1.js"></script>
-    <script src="jquery/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
 

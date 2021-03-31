@@ -1,7 +1,11 @@
+<head>
+        <!-- Bootstrap CSS -->
     <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> -->
 
+</head>
     <nav class="navbar navbar-expand-lg navbar-light text-dark bg-light">
         <a href="#" class="navbar-brand">CoursMySAL</a>
         <button class="navbar-toggler">
@@ -80,7 +84,7 @@
 
 
   <!-- script bootstrap/popper/jquery dependencies -->
-  <script src="jquery/jquery-3.5.1.js"></script>
+  <!-- <script src="jquery/jquery-3.5.1.js"></script>
     <script src="jquery/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> -->
 

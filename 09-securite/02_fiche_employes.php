@@ -18,7 +18,9 @@ array(
 
 
 
-// traitement des infos reçu par $_GET
+// as t-on reçu des informations par get $_GET ?
+//  $_GET est obligatoirement utilisé lorsqu'on reçoit les infos venant d'une URL
+// bien $_POST est parfois aussi utilisé pour récupérer les infos
 
 //jeprint_r($_GET);
 
@@ -44,6 +46,8 @@ if (isset  ($_GET['id_employes'])){// si existe l'indice "id_employes" dans $_GE
         header('location:02_employes.php'); // on redirige vers une autre page
         exit(); // on arrête le script
     }
+
+    // traitement de mise à jour d'un employé(e)
 
     if (!empty($_POST)) {
         //jevardump($_POST);
@@ -104,7 +108,10 @@ if (isset  ($_GET['id_employes'])){// si existe l'indice "id_employes" dans $_GE
 
     <!-- ============= NAV ============ -->
 <div class="container jumbotron">
-    <h1 class="display-4 list-group-item-success" >Cours PHP 7 - Employé <?php echo $fiche['prenom']. " " .$fiche['nom']; ?></h1>
+    <h1 class="display-4 list-group-item-success" >Cours PHP 7 - Employé <?php 
+                //if($fiche['sexe']=='m' || $fiche['sexe']=='f')
+    
+                echo $fiche['prenom']. " " .$fiche['nom']; ?></h1>
     <p class="lead">insertion des bases de données d'une manière sécurisé</p>
 
 </div><!-- /jumbotron -->
@@ -137,6 +144,8 @@ if (isset  ($_GET['id_employes'])){// si existe l'indice "id_employes" dans $_GE
                     <div class="form-group border border-secondary rounded  list-group-item-primary">
                         <div class="form-group col-md-6">
                         <label for="nom" class="text-dark text-uppercase " >nom</label>
+                        <!-- if (isset($_POST['nom']) { echo "..."; } else { echo '';}) si il n'y a rien je mets une chaîne vide : opérateur de coalescence-->
+                    <!-- cette opérateur avec $_POST['nom'] et if isset else "résumé" avec l'opérateur de coalescence sera utile si on utilise un seul formulaire pour INSERT et UPDATE-->
                             <input type="text" name="nom"  class="form-control" id="nom"  placeholder="votre nom" value="<?php echo $fiche['nom']; ?>">
                         </div>
                         <div class="form-group col-md-6">
@@ -149,14 +158,14 @@ if (isset  ($_GET['id_employes'])){// si existe l'indice "id_employes" dans $_GE
                         <div class="form-group col-md-6">
                         <label for="service" class="text-dark text-uppercase ">Service</label>
                         <select class="form-control"  name="service" id="service" value="">
-                            <option value="direction" <?php if(!(strcmp("direction", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Direction</option>
-                            <option value="commercial"  <?php if(!(strcmp("commercial", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Commercial</option>
-                            <option value="production"  <?php if(!(strcmp("production", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Production</option>
-                            <option value="secretariat" <?php if(!(strcmp("secretariat", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Sécrétariat</option>
-                            <option value="comptabilite"  <?php if(!(strcmp("comptabilite", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Comptabilité</option>
-                            <option value="communication"  <?php if(!(strcmp("communication", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Communication</option>
-                            <option value="juridique"  <?php if(!(strcmp("juridique", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Juridique</option>
-                            <option value="assistant"  <?php if(!(strcmp("informatique", $fiche['service']))) {echo "selected=\"selected\" ";} ?> >Assistant</option>
+                            <option value="direction" <?php if(!(strcmp("direction", $fiche['service']))) {echo "selected";} ?> >Direction</option>
+                            <option value="commercial"  <?php if(!(strcmp("commercial", $fiche['service']))) {echo "selected";} ?> >Commercial</option>
+                            <option value="production"  <?php if(!(strcmp("production", $fiche['service']))) {echo "selected";} ?> >Production</option>
+                            <option value="secretariat" <?php if(!(strcmp("secretariat", $fiche['service']))) {echo "selected";} ?> >Sécrétariat</option>
+                            <option value="comptabilite"  <?php if(!(strcmp("comptabilite", $fiche['service']))) {echo "selected";} ?> >Comptabilité</option>
+                            <option value="communication"  <?php if(!(strcmp("communication", $fiche['service']))) {echo "selected";} ?> >Communication</option>
+                            <option value="juridique"  <?php if(!(strcmp("juridique", $fiche['service']))) {echo "selected";} ?> >Juridique</option>
+                            <option value="assistant"  <?php if(!(strcmp("informatique", $fiche['service']))) {echo "selected";} ?> >Assistant</option>
                             <option value="informatique">Informatique</option>
                         </select>
                         </div>
@@ -166,13 +175,14 @@ if (isset  ($_GET['id_employes'])){// si existe l'indice "id_employes" dans $_GE
                         <label for="sexe" class="text-dark text-uppercase ">Sexe</label>
                         <select id="sexe" name="sexe" class="form-control">
                             <option selected>Quel sexe? </option>
-                            <option value="f"<?php if(!(strcmp("f", $fiche['sexe']))) {echo "selected=\"selected\" ";} ?> >Femme</option>
-                            <option value="m" <?php if(!(strcmp("m", $fiche['sexe']))) {echo "selected=\"selected\" ";} ?> >Masculin</option>
+                            <option value="f"<?php if(!(strcmp("f", $fiche['sexe']))) {echo "selected";} ?> >Femme</option>
+                            <option value="m" <?php if(!(strcmp("m", $fiche['sexe']))) {echo "selected";} ?> >Masculin</option>
                         </select>
                         </div>
                         <div class="form-group  col-md-4">
                         <!-- choose sex using check -->
                         <!-- <div class="form-check form-check-inline">
+                            // Pour les boutons radio le 1er sera "checked" et le second si on a l'info du sexe et si cette info est égale à "f"
                             <label class="form-check-label pr-3 py-3" for="sexe" >Sexe </label>
                             <input type="radio" name="sexe" value="m" checked class="mx-2"> Homme
                             <input class="form-check-input mx-2" type="radio" name="sexe" id="sexe" value="<?php //if (isset($fiche['sexe']) && $fiche['sexe'] == 'f') echo 'cheched'; ?>"> Femme

@@ -58,6 +58,18 @@
             <li>
                 <a href="#" class="nav-link">infos</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                06 pdo
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="../06-pdo/01_pdo.php">connection via pdo</a>
+                <a class="dropdown-item" href="../06-pdo/02_bibli.php">connection a BDD Bliotheque</a>
+          
+                <!-- <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>-->
+                </div>
+            </li>
 
 
         </ul>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 <?php
 
 $variable1 = "PHP 7 qui est dans une variable";
@@ -12,7 +15,7 @@ $variable1 = "PHP 7 qui est dans une variable";
     <?php echo "<title>Document</title>"; ?>
 </head>
 <body>
-    include("../inc/navbar.inc.php")
+<?php require '../inc/navbar.inc.php'; ?>
     <?php
 
     echo "<h1>Cours sur le $variable1</h1>";

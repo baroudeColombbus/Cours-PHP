@@ -15,7 +15,7 @@ if( !empty($_POST)) {
         $contenu = '<div class="alert alert-danger">Le nom doit contenir entre 4 et 20 caractères.</div>'; // si indice pseudo inf à 4 caractère ou sup à 20 caractère on affiche ce message
     }// fin if !isset($_POST['nom']
 
-    if( !isset($_POST['prenom']) || strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20 ) {
+    if( !isset($_POST['prenom']) || strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20  ) {
         $contenu = '<div class="alert alert-danger">Le prenom doit contenir entre 4 et 20 caractères.</div>'; // si indice pseudo inf à 4 caractère ou sup à 20 caractère on affiche ce message
     }// fin if !isset($_POST['prenom']
 
@@ -27,7 +27,9 @@ if( !empty($_POST)) {
         $contenu = '<div class="alert alert-danger">La civilité n\'est pas valable</div>'; //  est ce que j'ai f ou m sinon j'affiche le message
     }
 
-    if( !isset($_POST['adresse']) || strlen($_POST['adresse']) < 6 || strlen($_POST['adresse']) > 60 ) {
+    
+
+    if( !isset($_POST['adresse']) || strlen($_POST['adresse']) < 6 || strlen($_POST['adresse']) > 60  ) {
         $contenu = '<div class="alert alert-danger">L\' adresse est -elle complète ?.</div>'; // si indice adresse inf à 4 caractère ou sup à 20 caractère on affiche ce message
     }// fin if !isset($_POST['adresse']
 

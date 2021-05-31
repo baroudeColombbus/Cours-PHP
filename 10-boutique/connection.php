@@ -28,4 +28,13 @@ jeprint_r($ligne);
 
 echo $ligne['prenom'];
 
+
+
+
+
+
+
+
+
+
 ?>

@@ -10,6 +10,7 @@ $nbr_produit = $requete->rowCount();
 
 
 
+
 ?>
 
 

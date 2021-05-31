@@ -37,10 +37,34 @@ function executeRequete($requete, $parametres = array ()) { // utile pour toutes
 }// fermeture fonction executeRequete
 
 
-///////////// 3- VERIFIER SI LE MEMEMBRE EST CONNECTE    //////////////////
-
-
 ///////////// 3- VERIFIER SI STATUT DU MEMEMBRE    //////////////////
+
+function estConnecte() {
+    if(isset($_SESSION['membre'])){
+        return true;
+    } else {
+        return false;
+    }
+} // fermeture fonctionn estConnect
+
+
+
+// 4 verifier le statut du membre une fois qu'il est connecte
+
+function estAdmin(){
+    if(estConnecte() && $_SESSION['membre']['statut']== 1){
+        return true;
+    } else {
+        return false;
+    }
+} // fermeture fonctionn 
+
+
+
+
+
+
+
 
 
 

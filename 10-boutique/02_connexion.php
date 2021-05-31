@@ -1,9 +1,62 @@
 <?php 
+
+///////
+///       CETTE PAGE PERMET DE SE CONNECTER PUIS DE SE DECONNECTER
+///
+//
+
+
 // require à placer sur toutes les pages
 require_once('inc/init.php');
+require_once('connection.php');
 
 
-
+$message = '';
+// 5 VÉRIFIER QUE L'ON A BIEN CELA DANS LEURS PAGES
+//2- Déconnexion de l'internaute
+//jeprint_r($_GET);
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') { // si existe action dans l'url et que sa valeur est "deconnexion" on peut sortir c'est que le membre vetu se déconnecter 
+    unset($_SESSION['membre']); // on supprime le membre de la session (tout le contenu du tableau membre)
+    $message = '<div class="alert alert-primary">Vous êtes déconnecté.</div>'; 
+}
+// 3- Vérification si membre est déjà connecté : 
+if (estConnecte()) {// si membre déjà connecté on le renvoie vers son profil 
+    header('location:03_profil.php');//redirection vers la page profil.php script que l'on quitte tout de suite
+    exit();// pour quitter le script header() est une fonction prédéfinie
+}
+// 1- Traitement du formulaire de connexion
+//jeprint_r( $_POST );
+if ( !empty( $_POST ) ) { // si le formulaire est envoyé
+    // validation du formulaire 
+    if ( empty( $_POST[ 'pseudo' ] ) || empty( $_POST[ 'mdp' ] ) ) { // si le chmap pseudo est vide ou la chmap mdp est vide.
+        $contenu .= '<div class="alert alert-danger">Le pseudo doit contenir entre 4 et 20 caractères.</div>'; //.= concaténer au lieu de remplacer les identifiants sont pbligatoires
+    } /*fin du if !isset pseudo et mdp */
+    // sur le formulaire on vérifie le pseudo et le mdp en deux temps
+    if ( empty( $contenu ) ) { // si la variable $contenu est vide c'est qu'il n'y a pas d'erreurs (en fait le formulaire est rempli)
+        // requête en BDD les informations du membre pour le pseudo fourni par l'internaute
+        $resultat = executeRequete( " SELECT * FROM membre WHERE pseudo = :pseudo", array( ':pseudo' => $_POST[ 'pseudo' ] ) );
+        if ( $resultat->rowCount() == 1 ) { //Si il y une ligne dans la requête c'est que le pseudo est en BDD sinon 
+            // traitement du mot de passe 
+            $membre = $resultat->fetch( PDO::FETCH_ASSOC ); // on fetch l'objet $resultat en un tableau associatif qui contient toutes les informations du membre. 
+            jeprint_r( $membre );
+            if ( password_verify( $_POST[ 'mdp' ], $membre[ 'mdp' ] ) ) { // si le hash du mdp de la bdd correspond au mdp du formulaire, alors password_verify retourne true
+                $_SESSION[ 'membre' ] = $membre; // nous créons une session avec (une session est un fichier sur le serveur) avec les informations du membre provenant de la BDD )
+                // redirection du membre vers son profil 
+                header( 'location:03_profil.php' );
+                exit();
+            } else {
+                $contenu .= '<div class="alert alert-danger">Erreur sur les identifiants.</div>';
+            } /*fin  if (password_verify($_POST['mdp'], $membre['mdp']))*/
+        } else {
+            $contenu .= '<div class="alert alert-danger">Erreur sur les identifiants.</div>';
+        } /*fin if ($resultat)*/
+    } /*if (empty($contenu))*/
+} /*if !empty($_POST)*/
+// require_once 'inc/header.php';
+echo $message; //pour afficher le message lors de la connexion
+echo $contenu; //pour affciher les autres messages
+//jeprint_r($_SESSION);
+?>
 ?>
 
 
@@ -45,10 +98,11 @@ require_once('inc/init.php');
                   <!-- <small class="bg-warning">votre mot de passe doit contenir entre 4 et 20 caractères</small> -->
               </div>
               <div class="form-group mt-5 mb-3 col-md-6 ">
-                  <input type="submit" value="Inscrivez-vous" class="btn btn-sm btn-success">
+                  <input type="submit" value="Connectez-vous" class="btn btn-sm btn-success">
                   <input type="reset" value="effacer" class="btn btn-sm btn-secondary">
               </div>
-              <small class="bg-light">Connectez-vous pour administrer la Boutique</small>
+              <a href="01_inscription.php"><small class="bg-light">Vous n'etes pas inscrit inscrivez vous</small></a><small class="bg-light">Retour vers mon code</small></a>
+              
               
            </div>
            <div class="col-md-6">

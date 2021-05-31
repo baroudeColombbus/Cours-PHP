@@ -124,7 +124,7 @@
                 //EXO : afficher le service de l'emloyé dant l'id est 417 et son nom et son prénom
                 // $ligne = $requete->fetch(PDO::FETCH_ASSOC);
                 echo "<h4>Afficher le service de l'emloyé dant l'id est 417</h4>";
-                echo "<ul class=\"alert alert-warning\">";
+                echo "<ul class=\"alert alert-secondary\">";
                 echo "<p>Id employe : " .$ligne['id_employes']. "</p>";
                 echo "<p>Nom : " .$ligne['nom']. " " .$ligne['prenom']. "</p>";
                 echo "</ul>";

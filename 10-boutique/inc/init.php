@@ -18,8 +18,9 @@ array(
 
      ///////// 3- CHEMIN DU SITE AVEC CONSTANTE    ///////////
 
-    
-
+    // constante qui défini le dossier dans lequel se situe
+    // chew l4hebergeur on se contente de define( echo RACINE_SITE .'index.php';)
+define('RACINE_SITE', '/cours-php/10-boutique/');
      ///////// 4-          ///////////
     
      $contenu = '';

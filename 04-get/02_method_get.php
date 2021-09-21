@@ -68,8 +68,6 @@ require_once '../inc/functions.php';
     <?php
 
         require_once '../inc/footer.inc.php';
-
-
     ?>
 </body>
 </html>

@@ -49,7 +49,7 @@
                     echo "</tr>";
                     echo "</thead>";
 
-                                   
+                             
                     while ($ligne = $requete->fetch(PDO ::FETCH_ASSOC)) {                        
                         echo "<tr>";
                         echo "<td>". $ligne['id_employes']. "</td>";

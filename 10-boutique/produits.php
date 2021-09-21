@@ -3,12 +3,8 @@
 require_once('inc/init.php');
 
 
-
 $requete = $pdoSITE->query("SELECT * FROM produit");
 $nbr_produit = $requete->rowCount();
-
-
-
 
 
 ?>

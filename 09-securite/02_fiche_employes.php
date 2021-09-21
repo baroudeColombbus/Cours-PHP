@@ -233,9 +233,6 @@ if (isset  ($_GET['id_employes'])){// si existe l'indice "id_employes" dans $_GE
 </div><!-- /row -->
 
 
-
-
-    
 </main>
 <!-- script bootstrap/popper/jquery dependencies -->
 <script src="jquery/jquery-3.5.1.js"></script>

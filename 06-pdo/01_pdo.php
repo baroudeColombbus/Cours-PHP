@@ -337,7 +337,6 @@
                 // jevar_dump($employe);
                 echo $employe['prenom']. " " .$employe['nom']. " est au service " .$employe['service'];// on affiche les infos
                 
-            
                 ?>
 
             </div><!-- /col -->

@@ -17,8 +17,6 @@
   </head>
   <body>
 
-
-
     <!-- ============= NAV ============ -->
     <div class="container jumbotron">
         <h1 class="display-4">Cours PHP 7 - Les boucles</h1>
